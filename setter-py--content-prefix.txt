@@ -1,0 +1,44 @@
+#+date: 05:30 PM; Aug 28, 2024 
+
+#+latex_class: tiet-question-paper
+#+latex_class_options: [11pt]
+#+options: num:nil toc:nil author:nil email:nil 
+
+#+latex_header_extra: \hypersetup{%
+#+latex_header_extra:   colorlinks,%
+#+latex_header_extra:   breaklinks,%
+#+latex_header_extra:   urlcolor=[rgb]{0,0.35,0.65},%
+#+latex_header_extra:   linkcolor=[rgb]{0,0.35,0.65}%
+#+latex_header_extra: }
+
+# #+latex_header_extra: \usepackage{libertinus}
+
+#+latex_header_extra: \instlogo{images/tiet-logo.pdf}
+#+latex_header_extra: \schoolordepartment{%
+#+latex_header_extra: Computer Science \& Engineering Department}
+#+latex_header_extra: \examname{Quiz - I (Set: CE092FFD_SETID)}
+#+latex_header_extra: \coursecode{MCA101}
+#+latex_header_extra: \coursename{Computer Graphics}
+#+latex_header_extra: \timeduration{20 mins}
+#+latex_header_extra: \maxmarks{100}
+#+latex_header_extra: \faculty{RGB}
+
+#+latex: \thispagestyle{empty}
+#+latex: \maketitle
+
+*Answers:*
+
+#+attr_latex: :width \linewidth :spread t :environment tabularx :align X|X|X|X|X|X|X|X|X|X
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---+---+---+---+---+---+---+---+---+----|
+|   |   |   |   |   |   |   |   |   |    |
+|   |   |   |   |   |   |   |   |   |    |
+|---+---+---+---+---+---+---+---+---+----|
+
+#+attr_latex: :width \linewidth :spread t :environment tabularx :align X|X|X|X|X|X|X|X|X|X
+| 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 |
+|----+----+----+----+----+----+----+----+----+----|
+|    |    |    |    |    |    |    |    |    |    |
+|    |    |    |    |    |    |    |    |    |    |
+|----+----+----+----+----+----+----+----+----+----|
+

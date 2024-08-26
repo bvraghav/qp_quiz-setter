@@ -1,0 +1,22 @@
+1. Setup the QP Details: Open [[file:setter-py--content-prefix.txt][org-file-header-txt]] and
+   1. L1: Update date;
+   2. L19: Update Exam Name;
+   3. L20: Update Course Code;
+   4. L21: Update Course Name;
+   5. L22: Update Time Duration;
+   6. L23: Update MM;
+   7. L24: Update Faculty Name;
+   8. L29-43: Update Instructions;
+2. Create /Question DB/ as CSV file with following
+   header:
+   1. Header String: Q,A0,A1,A2,A3,A,A_MUL_P
+   2. Q: Question Text;
+   3. A0: Answer 0 Text;
+   4. A1: Answer 1 Text;
+   5. A2: Answer 2 Text;
+   6. A3: Answer 3 Text;
+   7. A: Correct Answer Index {0,1,2,3};
+   8. A_MUL_P: Is the answer multi-line {0,1};
+3. Create a relative symlink =qdb.csv= to point to the
+   /Question DB/
+4. =make clean && make -j10 NUM_SETS=4 && make clean-minted=
