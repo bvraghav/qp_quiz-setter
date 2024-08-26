@@ -23,6 +23,13 @@
 #+latex_header_extra: \maxmarks{100}
 #+latex_header_extra: \faculty{RGB}
 
+# Adapted From: https://tex.stackexchange.com/a/94702
+#+latex_header_extra: \newenvironment{absolutelynopagebreak}
+#+latex_header_extra:   {\par\nobreak\vfil\penalty0\vfilneg
+#+latex_header_extra:    \vtop\bgroup}
+#+latex_header_extra:   {\par\xdef\tpd{\the\prevdepth}\egroup
+#+latex_header_extra:    \prevdepth=\tpd}
+
 #+latex: \thispagestyle{empty}
 #+latex: \maketitle
 
@@ -42,3 +49,4 @@
 |    |    |    |    |    |    |    |    |    |    |
 |----+----+----+----+----+----+----+----+----+----|
 
+\bvrskipline

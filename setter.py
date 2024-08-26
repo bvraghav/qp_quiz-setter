@@ -12,6 +12,10 @@ from pathlib import Path
 QDB_FNAME = './qdb.csv'
 CONTENT_PREFIX_FNAME = 'setter-py--content-prefix.txt'
 SETID_PLACEHOLDER = 'CE092FFD_SETID'
+# Q_BLOCK_PRE = '@@latex:\\begin{samepage}@@ '
+# Q_BLOCK_POST = '\n   @@latex: \\end{samepage}@@'
+Q_BLOCK_PRE = '@@latex:\\begin{absolutelynopagebreak}@@ '
+Q_BLOCK_POST = '\n   @@latex: \\end{absolutelynopagebreak}@@'
 Q_PRE = '1. '
 Q_SEP = '\n\n\\bvrskipline\n#+attr_latex: :options [resume]\n'
 A_PRE = '   1. '
@@ -20,7 +24,7 @@ QA_SEP = (
   '\\\\\n   #+attr_latex: :environment enumerate* '
   ':options [itemjoin={\quad},]\n'
 )
-QAMUL_SEP = ''
+QAMUL_SEP = '\n'
 CONTENT_SUFFIX = '\n\\bvrhrule\n'
 # Inferred Config
 CONTENT_PREFIX = ''
@@ -42,6 +46,8 @@ QDB = []
 ), default = CONTENT_PREFIX_FNAME,)
 @click.option('--set-id-placeholder',
               default = SETID_PLACEHOLDER,)
+@click.option('--q-block-pre', default=Q_BLOCK_PRE)
+@click.option('--q-block-post', default=Q_BLOCK_POST)
 @click.option('--q-pre', default=Q_PRE)
 @click.option('--q-sep', default=Q_SEP)
 @click.option('--a-pre', default=A_PRE)
@@ -56,6 +62,8 @@ def main(
     qdb_path,
     content_prefix_path,
     set_id_placeholder,
+    q_block_pre,
+    q_block_post,
     q_pre,
     q_sep,
     a_pre,
@@ -115,7 +123,7 @@ def genQ(Q,A0,A1,A2,A3,A_MUL_P,**_):
   aConcat = A_SEP.join(
     f'{A_PRE}{a}' for a in (A0,A1,A2,A3)
   )
-  return f'{Q_PRE}{Q}{qaSep}{aConcat}'
+  return f'{Q_PRE}{Q_BLOCK_PRE}{Q}{qaSep}{aConcat}{Q_BLOCK_POST}'
 
 def genQpaperAndKey(qdbData, seed):
   rng = random.Random(seed)
