@@ -1,4 +1,19 @@
-1. Setup the QP Details: Open [[file:setter-py--content-prefix.txt][org-file-header-txt]] and
+#+title: QP Quiz Setter
+
+* Summary
+
+Given a /QDB/ of multiple choice questions, this
+package automatically creates /N/ “sets” of question
+papers, so that each “set” is the same question paper
+in randomised order of questions.  Furthermore, the
+order of answer choices are also randomised, and the
+key for each set is printed separately into a different
+PDF.
+
+* Usage
+
+1. Ensure [[*System][system pre-requisites]].
+2. Setup the QP Details: Open [[file:setter-py--content-prefix.txt][org-file-header-txt]] and
    1. L1: Update date;
    2. L19: Update Exam Name;
    3. L20: Update Course Code;
@@ -7,8 +22,34 @@
    6. L23: Update MM;
    7. L24: Update Faculty Name;
    8. L29-43: Update Instructions;
-2. Create /Question DB/ as CSV file with following
-   header:
+3. Setup [[*Data][Data, /i.e. QDB/ and =images= folder]].
+4. Create a relative symlink =qdb.csv= to point to the
+   /QDB/
+5. =make clean && make -j10 NUM_SETS=4 && make
+   clean-minted=
+
+* Pre-requisites
+
+** System
+
+I summarise my system requirements here.  So this is
+definitely not the bare minimum system requirements. 
+
+1. Linux System
+2. [[https://docs.anaconda.com/miniconda/][MiniConda]] Python with [[https://github.com/bvraghav/dotemacs/blob/master/conda-env.yml][this env]].  /Required for
+   Python/.
+3. [[https://www.gnu.org/software/emacs/][Emacs]] with [[https://github.com/bvraghav/dotemacs][BVR’s version of DotEmacs]].  /Required for
+   =org-latex-export=/.
+4. I recommend [[https://github.com/bvraghav/stow/tree/master][my userspace setup]]; but at least,
+   [[https://github.com/bvraghav/stow/blob/master/user-home/.local/bin/fire_emacs][=fire_emacs=]] Wrapper for running Emacs daemon.  This
+   [[https://github.com/bvraghav/stow/blob/master/user-home/.functions.zsh][Zsh function]] should help spawning an Emacs daemon
+   with =fire_emacs=.  /Required for invoking
+   =emacsclient=/.
+5. [[https://tug.org/texlive/][TeXLive]], and [[https://mg.readthedocs.io/latexmk.html][LatexMk]].  /Required to compile TeX to
+   PDF/.
+
+** Data
+1. Create /QDB/ as CSV file with following header:
    1. Header String: Q,A0,A1,A2,A3,A,A_MUL_P
    2. Q: Question Text;
    3. A0: Answer 0 Text;
@@ -17,6 +58,18 @@
    6. A3: Answer 3 Text;
    7. A: Correct Answer Index {0,1,2,3};
    8. A_MUL_P: Is the answer multi-line {0,1};
-3. Create a relative symlink =qdb.csv= to point to the
-   /Question DB/
-4. =make clean && make -j10 NUM_SETS=4 && make clean-minted=
+2. If using the [[https://github.com/bvraghav/qptiet_latex-class][=tiet-question-paper=]] $\LaTeX$ document
+   class, also download the [[https://drive.google.com/drive/folders/15Jh2eAJR3h1HT28c8Hr3D0JChn2_4yLR][=images= folder]] to root
+   folder.  The system degrades gracefully for any
+   other use case, eg. =images= folder not available,
+   or using any other $\LaTeX$ document class.  PS: The
+   =images= folder link has restricted access; so, if
+   required, please request access using a
+   =@thapar.edu= email.
+
+* Output
+
+The output shall be available in the =dist= folder.
+Two files of consequence are:
++ =all-sets.pdf=; and
++ =keys.pdf=.
