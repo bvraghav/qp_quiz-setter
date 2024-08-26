@@ -25,8 +25,13 @@ PDF.
 3. Setup [[*Data][Data, /i.e. QDB/ and =images= folder]].
 4. Create a relative symlink =qdb.csv= to point to the
    /QDB/
-5. =make clean && make -j10 NUM_SETS=4 && make
-   clean-minted=
+
+Finally,
+#+begin_src sh :shebang "#! /bin/zsh"
+  make clean && \
+    make -j10 NUM_SETS=4 && \
+    make clean-minted
+#+end_src
 
 * Pre-requisites
 
