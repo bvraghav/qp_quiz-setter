@@ -26,6 +26,9 @@ QA_SEP = (
 )
 QAMUL_SEP = '\n'
 CONTENT_SUFFIX = '\n\\bvrhrule\n'
+# To add another blank page, uncomment below
+# CONTENT_SUFFIX = '\n\\bvrhrule\n\n*Rough Work here onwards*\n\\newpage\n\\null'
+
 # Inferred Config
 CONTENT_PREFIX = ''
 QDB = []
