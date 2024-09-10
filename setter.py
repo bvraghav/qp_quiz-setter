@@ -166,7 +166,7 @@ def keyAsHumanReadable(aList, groupSize=4):
     ''.join(aList[a:b])
    for (a,b) in zip(
        range(0,len(aList),s),
-       range(min(s,len(aList)),(s-1)+len(aList),s)
+       range(min(s,len(aList)),s+len(aList),s)
    )
   )
 
