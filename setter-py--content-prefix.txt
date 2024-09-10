@@ -23,6 +23,8 @@
 #+latex_header_extra: \maxmarks{100}
 #+latex_header_extra: \faculty{RGB}
 
+#+latex_header_extra: \setlist[enumerate,2]{label=\Alph*)}
+
 # Adapted From: https://tex.stackexchange.com/a/94702
 #+latex_header_extra: \newenvironment{absolutelynopagebreak}
 #+latex_header_extra:   {\par\nobreak\vfil\penalty0\vfilneg
@@ -32,6 +34,15 @@
 
 #+latex: \thispagestyle{empty}
 #+latex: \maketitle
+
+*Instructions:*
+1. 25% negative marking.
+2. Write Roll No and Name in the space provided.
+3. Mark answers in ink and in the table below.
+   Overwriting shall count as wrong answer.
+4. Use only the space provided as rough work, wisely.
+   Scribing anywhere else may amount to
+   disqualification.
 
 *Answers:*
 
