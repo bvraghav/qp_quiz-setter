@@ -1,9 +1,10 @@
-import csv
+﻿import csv
 from argparse import Namespace as NS
 
 import random
 import click
 from pathlib import Path
+import logging as LG
 
 # -----------------------------------------------------
 # Config Defaults
@@ -25,7 +26,7 @@ QA_SEP = (
   ':options [itemjoin={\quad},]\n'
 )
 QAMUL_SEP = '\n'
-CONTENT_SUFFIX = '\n\\bvrhrule\n'
+CONTENT_SUFFIX = '\n\\bvrhrule\n\n*Rough Work here onwards*\n'
 # To add another blank page, uncomment below
 # CONTENT_SUFFIX = '\n\\bvrhrule\n\n*Rough Work here onwards*\n\\newpage\n\\null'
 
@@ -112,6 +113,7 @@ def getContentPrefix(
   return pref
 
 def loadQdb(fname = QDB_FNAME) :
+  lg = LG.getLogger(__name__)
   qdb = dict()
   with open(fname, 'r', newline='') as F :
     reader = csv.DictReader(F, dialect='excel')
@@ -119,6 +121,7 @@ def loadQdb(fname = QDB_FNAME) :
     qdb['data'] = list(reader)
     qdb['numLines'] = len(qdb['data'])
 
+  lg.info(qdb['data'][:2])
   return qdb
 
 def genQ(Q,A0,A1,A2,A3,A_MUL_P,**_):
@@ -178,6 +181,11 @@ def fnameFromSeed(seed):
 
 
 if __name__ == '__main__' :
+  LG.basicConfig(
+    level=LG.INFO,
+    format='%(levelname)-8s: [%(name)s] %(message)s'
+  )
+
 
   # loadContentPrefix('Alpha Charlie')
 
